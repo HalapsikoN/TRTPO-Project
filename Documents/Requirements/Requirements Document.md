@@ -82,15 +82,15 @@
 
 ## 2.2 Интерфейс пользователя
 Окно входа в приложение.  
-![Окно входа в приложение](../Images/Mockups/menu.png)   
+![Окно входа в приложение](../../Images/Mockups/menu.png)   
 Окно регистрации нового пользователя.  
-![Окно регистрации нового пользователя](../Images/Mockups/registration.png)   
+![Окно регистрации нового пользователя](../../Images/Mockups/registration.png)   
 Окно авторизации.  
-![Окно авторизации](../Images/Mockups/enter.png)    
+![Окно авторизации](../../Images/Mockups/enter.png)    
 Окно рабочего пространства пользователся.  
-![Окно рабочего пространства пользователся](../Images/Mockups/mainWindow.png)    
+![Окно рабочего пространства пользователся](../../Images/Mockups/mainWindow.png)    
 Окно редактирования заметки.  
-![Окно редактирования заметки](../Images/Mockups/note.png)     
+![Окно редактирования заметки](../../Images/Mockups/note.png)     
 
 <a name="user_specifications"/>
 
