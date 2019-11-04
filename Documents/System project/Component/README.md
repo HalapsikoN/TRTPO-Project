@@ -1,4 +1,4 @@
-# Диаграмма компонентов
+# Диаграмма развёртывания
 ---
 
-![Диаграмма компонентов](../../../Images/System%20design/general_comp.png)
+![Диаграмма развёртывания](../../../Images/System%20design/general_comp.png)
