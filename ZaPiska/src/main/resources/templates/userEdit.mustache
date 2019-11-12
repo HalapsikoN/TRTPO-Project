@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div>Редакт юзера:</div>
+<form action="/user" method="post">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <input type="text" value="{{user.username}}" name="username">
+    <div>User roles now: {{user.roles}}</div>
+    {{#role}}
+        <div>
+            <label><input type="checkbox" name="{{name}}">{{name}}</label>
+        </div>
+    {{/role}}
+    <input type="hidden" value="{{user.id}}" name="userId">
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

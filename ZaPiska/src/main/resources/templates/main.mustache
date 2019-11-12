@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<div>Список запишок:</div>
+{{#notes}}
+    <form action="" method="">
+        <div>
+            <label>
+                <input type="radio" name="choose" value="{{id}}"/>
+            </label>
+            <span>{{header}}</span>
+            <i>{{data}}</i>
+        </div>
+    </form>
+    <button type="submit">Добавить</button>
+{{/notes}}
+</body>
+</html>
