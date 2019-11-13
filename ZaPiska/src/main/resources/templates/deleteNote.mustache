@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="https://image.flaticon.com/icons/png/512/93/93155.png">
+</head>
+<body>
+<div>hello, user</div>
+{{#note}}
+    <form action="/delete/{{note.id}}" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <h1>Вы уверены, шо хотите удалить ({{note.header}})?</h1>
+        <button type="submit">Да, удалите это немедленно</button>
+        <a type="button" href="/main">Нет, погодите</a>
+    </form>
+{{/note}}
+</body>
+</html>

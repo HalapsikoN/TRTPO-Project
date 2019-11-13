@@ -1,18 +1,58 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Spring Security Example </title>
+    <meta charset="utf-8">
+    <title>Registrate account</title>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
+    <link rel="shortcut icon" href="https://image.flaticon.com/icons/png/512/93/93155.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            background:  url(http://i.wallpic.net/8/89d3/medved-na-chernom-fone_1920x1200.jpg); /* Цвет фона и путь к файлу */
+        }
+    </style>
 </head>
 <body>
-Add new user
-{{#message}}
-    {{message}}
-{{/message}}
-<form action="/registration" method="post">
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Add new user"/></div>
-</form>
+<div class="container-fluid" style="width:1700px">
+    <br>
+    <div class="row justify-content-md-center">
+        <div class="col-sm-auto offset-md-1">
+            <h1 class="text-light" style="font-family:Lobster;font-size:50px">РЕГИСТРАЦИЯ</h1>
+        </div>
+    </div>
+    <br><br>
+    <form action="/registration" method="post">
+
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+
+        <div class="row justify-content-md-start">
+            <div class="col-md-4">
+                <label class="text-light">Введите имя пользователя</label>
+                <input type="text" class="form-control" name="username" placeholder="Имя пользователя">
+                <br>
+                <label class="text-light">Введите пароль</label>
+                <input type="password" class="form-control" name="password" placeholder="Пароль">
+            </div>
+        </div>
+
+        <br>
+        <div class="row justify-content-md-start">
+            <div class="col">
+                <button class="btn btn-primary" type="submit">Зарегистрироваться</button>
+                <a class="btn btn-warning" href="/  " role="button">Назад в меню</a>
+            </div>
+        </div>
+
+        {{#message}}
+            <br>
+            <div class="row justify-content-md-start">
+                <div class="col-0">
+                    <h4><span class="badge badge-pill badge-warning">Извините, но пользователь с таким именем уже существует.</span></h4>
+                </div>
+            </div>
+        {{/message}}
+    </form>
+</div>
 </body>
 </html>

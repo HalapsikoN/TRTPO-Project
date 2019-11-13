@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="https://image.flaticon.com/icons/png/512/93/93155.png">
+</head>
+<body>
+<div>hello, user</div>
+<form action="/add" method="post">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <input type="text" name="header" required="required">
+    <input type="text" name="data" required="required">
+    <button type="submit">Добавить заметку</button>
+    <a type="button" href="/main">Отмена</a>
+</form>
+
+</body>
+</html>
