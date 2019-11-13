@@ -40,17 +40,7 @@ public class NoteServiceImpl implements NoteService {
     public boolean updateNote(Note note) throws ServiceException {
         checkNote(note);
 
-        Note updateNote=repository.findByHeader(note.getHeader());
-
-        if(updateNote==null){
-            throw new ServiceException("no such note");
-        }
-
-        repository.deleteByHeader(updateNote.getHeader());
-
-        updateNote.setData(note.getData());
-
-        repository.save(updateNote);
+        repository.save(note);
 
         return true;
     }

@@ -25,11 +25,6 @@ public class MainController {
     @Autowired
     private UserDAO repo;
 
-    @GetMapping("/")
-    public String greeting(Map<String, Object> model){
-        return "greeting";
-    }
-
     @GetMapping("/main")
     public String main(@AuthenticationPrincipal User user, Map<String, Object> model){
         List<Note> notes= null;
