@@ -5,10 +5,13 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface NoteDAO extends MongoRepository<Note, String>{
+public interface NoteDAO extends MongoRepository<Note, String> {
 
-    boolean existsByHeader(String header);
-    Note findByHeader(String header);
-    void deleteByHeader(String header);
+    boolean existsByHeaderAndUserID(String header, Long UserID);
+
+    Note findByHeaderAndUserID(String header, Long UserID);
+
+    void deleteByHeaderAndUserID(String header, Long UserID);
+
     List<Note> findAllByUserID(Long userID);
 }

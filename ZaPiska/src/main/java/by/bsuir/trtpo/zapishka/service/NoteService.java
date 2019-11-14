@@ -9,13 +9,13 @@ import java.util.List;
 
 public interface NoteService {
 
-    boolean addNote(Note note) throws AlreadyHadSuchNoteException, IllegalDataInputException;
+    boolean addNote(Note note, Long userID) throws AlreadyHadSuchNoteException, IllegalDataInputException;
 
-    Note getNote(String header) throws IllegalDataInputException;
+    Note getNote(String header, Long userID) throws IllegalDataInputException;
 
     boolean updateNote(Note note) throws IllegalDataInputException;
 
-    boolean deleteNote(String header) throws IllegalDataInputException;
+    boolean deleteNote(String header, Long userID) throws IllegalDataInputException;
 
     List<Note> getAllNotesByUserID(Long userID) throws IllegalDataInputException;
 

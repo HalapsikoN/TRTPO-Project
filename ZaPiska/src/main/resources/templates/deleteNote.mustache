@@ -1,20 +1,59 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <meta charset="utf-8">
+    <title>ZaPishka</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="https://image.flaticon.com/icons/png/512/93/93155.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background:  url(https://images.wallpaperscraft.ru/image/kot_morda_vzglyad_chernyy_fon_66486_1920x1080.jpg); /* Цвет фона и путь к файлу */
+        }
+    </style>
 </head>
 <body>
-<div>hello, user</div>
-{{#note}}
-    <form action="/delete/{{note.id}}" method="post">
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <div class="row justify-content-between" style="width:100%">
+            <div class="col-1">
+                <a class="navbar-brand" href="/main">
+                    <img src="https://image.flaticon.com/icons/png/512/93/93155.png" height="30" style="margin-right:10px;margin-top:3px" class="d-inline-block align-top" alt="">
+                    <span class="navbar-brand mb-0 h1">ZaPishka</span>
+                </a>
+            </div>
+            <div class="col-0">
+                <form class="form-inline" action="/logout" method="post">
+                    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                    <span class="navbar-brand mb-0 h1">{{user.username}}</span>
+                    <button class="btn btn-outline-primary" style="margin-top:6px" type="submit">Выйти</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<br><br><br>
+<div class="container-fluid h-100">
+    <div class="row justify-content-center">
         <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-        <h1>Вы уверены, шо хотите удалить ({{note.header}})?</h1>
-        <button type="submit">Да, удалите это немедленно</button>
-        <a type="button" href="/main">Нет, погодите</a>
-    </form>
-{{/note}}
+        <h1 style="text-align:center"> <span class="badge badge-secondary">Вы уверены, что хотите удалить ({{note.header}})?</span></h1>
+    </div>
+    {{#note}}
+        <div class="row justify-content-start">
+            <div class="col-md-2 offset-md-1">
+                <form action="/delete/{{note.id}}" method="post">
+                    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                    <button type="submit" class="btn btn-danger btn-lg btn-block">Удалить</button>
+                </form>
+            </div>
+            <div class="col-md-2 offset-md-6">
+                <a href="/main" class="btn btn-primary btn-lg btn-block">Отмена</a>
+            </div>
+        </div>
+    {{/note}}
 </body>
 </html>

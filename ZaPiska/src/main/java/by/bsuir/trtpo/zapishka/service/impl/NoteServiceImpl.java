@@ -17,11 +17,11 @@ public class NoteServiceImpl implements NoteService {
     private NoteDAO repository;
 
     @Override
-    public boolean addNote(Note note) throws AlreadyHadSuchNoteException, IllegalDataInputException {
+    public boolean addNote(Note note, Long userID) throws AlreadyHadSuchNoteException, IllegalDataInputException {
         checkNote(note);
 
-        if(repository.existsByHeader(note.getHeader())){
-            throw new AlreadyHadSuchNoteException();
+        if (repository.existsByHeaderAndUserID(note.getHeader(), userID)) {
+            throw new AlreadyHadSuchNoteException(String.valueOf(repository.findByHeaderAndUserID(note.getHeader(), userID).getId()));
         }
 
         repository.save(note);
@@ -29,12 +29,12 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public Note getNote(String header) throws IllegalDataInputException {
-        if(header==null || header.isEmpty()){
+    public Note getNote(String header, Long userID) throws IllegalDataInputException {
+        if (header == null || header.isEmpty()) {
             throw new IllegalDataInputException("no header");
         }
 
-        return repository.findByHeader(header);
+        return repository.findByHeaderAndUserID(header, userID);
     }
 
     @Override
@@ -47,35 +47,35 @@ public class NoteServiceImpl implements NoteService {
     }
 
     private void checkNote(Note note) throws IllegalDataInputException {
-        if(note==null){
+        if (note == null) {
             throw new IllegalDataInputException("no note");
         }
-        if(note.getHeader()==null || note.getHeader().isEmpty() || note.getData()==null || note.getUserID()==null){
+        if (note.getHeader() == null || note.getHeader().isEmpty() || note.getData() == null || note.getUserID() == null) {
             throw new IllegalDataInputException("Something is empty");
         }
     }
 
     @Override
-    public boolean deleteNote(String header) throws IllegalDataInputException {
-        if(header==null || header.isEmpty()){
+    public boolean deleteNote(String header, Long userID) throws IllegalDataInputException {
+        if (header == null || header.isEmpty()) {
             throw new IllegalDataInputException("no header");
         }
 
-        repository.deleteByHeader(header);
+        repository.deleteByHeaderAndUserID(header, userID);
 
         return true;
     }
 
     @Override
     public List<Note> getAllNotesByUserID(Long userID) throws IllegalDataInputException {
-        if(userID==null){
+        if (userID == null) {
             throw new IllegalDataInputException("no UserID");
         }
 
         return repository.findAllByUserID(userID);
     }
 
-    public NoteDAO getRepository(){
+    public NoteDAO getRepository() {
         return repository;
     }
 }

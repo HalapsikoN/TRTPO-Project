@@ -9,7 +9,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name="usr")
+@Table(name = "usr")
 public class User implements UserDetails {
 
     @Id
@@ -20,7 +20,7 @@ public class User implements UserDetails {
     private boolean active;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @CollectionTable(name="user_role", joinColumns = @JoinColumn(name = "name_id"))
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "name_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 

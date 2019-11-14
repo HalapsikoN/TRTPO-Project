@@ -22,27 +22,20 @@ public class RegistrationController {
     private UserDAO userRepo;
 
     @GetMapping("/registration")
-    public String registration(){
+    public String registration() {
         return "registration";
     }
 
     @PostMapping("/registration")
-    public String addUser(User user, Map <String, Object> model){
-        User userFromDb=userRepo.findByUsername(user.getUsername());
-
-        System.out.println(user);
-
-        if(userFromDb != null){
+    public String addUser(User user, Map<String, Object> model) {
+        User userFromDb = userRepo.findByUsername(user.getUsername());
+        if (userFromDb != null) {
             model.put("message", "User exists!");
             return "registration";
         }
-
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
-
-        System.out.println(user);
         userRepo.save(user);
-
         return "redirect:/";
     }
 }

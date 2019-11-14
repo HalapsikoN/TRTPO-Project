@@ -20,17 +20,18 @@ import java.util.Map;
 @RequestMapping("/delete")
 public class DeleteNoteController {
 
-    private static final Logger logger= LogManager.getLogger(DeleteNoteController.class);
+    private static final Logger logger = LogManager.getLogger(DeleteNoteController.class);
 
     @Autowired
     private NoteService repository;
 
     @GetMapping("{note}")
     public String showDeletePage(@PathVariable Note note, @AuthenticationPrincipal User user,
-                                 Map<String, Object> model){
-        if(note!=null && note.getUserID().equals(user.getId())){
+                                 Map<String, Object> model) {
+        model.put("user", user);
+        if (note != null && note.getUserID().equals(user.getId())) {
             model.put("note", note);
-        }else {
+        } else {
             logger.warn("another user tried to access");
             return "redirect:/main";
         }
@@ -39,14 +40,14 @@ public class DeleteNoteController {
 
     @PostMapping("{note}")
     public String deleteNote(@PathVariable Note note, @AuthenticationPrincipal User user,
-                             Map<String, Object> model){
-        if(note!=null && note.getUserID().equals(user.getId())){
+                             Map<String, Object> model) {
+        if (note != null && note.getUserID().equals(user.getId())) {
             try {
-                repository.deleteNote(note.getHeader());
+                repository.deleteNote(note.getHeader(), user.getId());
             } catch (IllegalDataInputException e) {
                 logger.error(e.getMessage());
             }
-        }else{
+        } else {
             logger.warn("another user tried to access");
         }
         return "redirect:/main";

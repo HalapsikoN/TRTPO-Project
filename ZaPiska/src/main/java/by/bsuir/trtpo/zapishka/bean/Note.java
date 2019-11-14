@@ -10,7 +10,7 @@ import java.util.UUID;
 public class Note {
 
     @Id
-    private String id=UUID.randomUUID().toString();
+    private String id = UUID.randomUUID().toString();
 
     private String header;
     private String data;

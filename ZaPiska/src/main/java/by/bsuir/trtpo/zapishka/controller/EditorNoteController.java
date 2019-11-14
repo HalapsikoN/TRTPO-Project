@@ -17,19 +17,20 @@ import java.util.Map;
 @RequestMapping("/edit")
 public class EditorNoteController {
 
-    private static final Logger logger= LogManager.getLogger(EditorNoteController.class);
+    private static final Logger logger = LogManager.getLogger(EditorNoteController.class);
 
     @Autowired
     private NoteService repository;
 
 
     @GetMapping("{note}")
-    public String editNote(@PathVariable Note note, @AuthenticationPrincipal User user, Map<String, Object> model){
-        if(note!=null && note.getUserID().equals(user.getId())){
+    public String editNote(@PathVariable Note note, @AuthenticationPrincipal User user, Map<String, Object> model) {
+        model.put("user", user);
+        if (note != null && note.getUserID().equals(user.getId())) {
             model.put("note", note);
-        }else{
+        } else {
             logger.warn("another user tried to access");
-           return "redirect:/main";
+            return "redirect:/main";
         }
         return "editorNote";
     }
@@ -38,15 +39,23 @@ public class EditorNoteController {
     public String editSaveNote(@PathVariable Note note, @AuthenticationPrincipal User user,
                                @RequestParam String header, @RequestParam String data,
                                Map<String, Object> model) {
-        if(note!=null && note.getUserID().equals(user.getId())){
-            note.setData(data);
-            note.setHeader(header);
+        model.put("user", user);
+        String message = null;
+        if (note != null && note.getUserID().equals(user.getId())) {
             try {
-                repository.updateNote(note);
+                if (repository.getNote(header, user.getId()) == null || note.getId().equals(repository.getNote(header, user.getId()).getId())) {
+                    note.setData(data);
+                    note.setHeader(header);
+                    repository.updateNote(note);
+                } else {
+                    logger.warn("redirect user");
+                    model.put("message", String.valueOf(repository.getNote(header, user.getId()).getId()));
+                    return "editorNote";
+                }
             } catch (IllegalDataInputException e) {
                 logger.error(e.getMessage());
             }
-        }else{
+        } else {
             logger.warn("another user tried to access");
         }
         return "redirect:/main";
