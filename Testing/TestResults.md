@@ -22,89 +22,89 @@
 <a name="1"/>
 
 Рисунок 1.
-![Рисунок 1](../Images/Testing/1.PNG)
+![Рисунок 1](../Images/Testing/1.png)
 
 <a name="2"/>
 
 Рисунок 2.
-![Рисунок 2](../Images/Testing/2.PNG)
+![Рисунок 2](../Images/Testing/2.png)
 
 <a name="3"/>
 
 Рисунок 3.
-![Рисунок 3](../Images/Testing/3.PNG)
+![Рисунок 3](../Images/Testing/3.png)
 
 <a name="4"/>
 
 Рисунок 4.
-![Рисунок 4](../Images/Testing/4.PNG)
+![Рисунок 4](../Images/Testing/4.png)
 
 <a name="5"/>
 
 Рисунок 5.
-![Рисунок 5](../Images/Testing/5.PNG)
+![Рисунок 5](../Images/Testing/5.png)
 
 <a name="6"/>
 
 Рисунок 6.
-![Рисунок 6](../Images/Testing/6.PNG)
+![Рисунок 6](../Images/Testing/6.png)
 
 <a name="7"/>
 
 Рисунок 7.
-![Рисунок 7](../Images/Testing/7.PNG)
+![Рисунок 7](../Images/Testing/7.png)
 
 <a name="8"/>
 
 Рисунок 8.
-![Рисунок 8](../Images/Testing/8.PNG)
+![Рисунок 8](../Images/Testing/8.png)
 
 <a name="9"/>
 
 Рисунок 9.
-![Рисунок 9](../Images/Testing/9.PNG)
+![Рисунок 9](../Images/Testing/9.png)
 
 <a name="10"/>
 
 Рисунок 10.
-![Рисунок 10](../Images/Testing/10.PNG)
+![Рисунок 10](../Images/Testing/10.png)
 
 <a name="11"/>
 
 Рисунок 11.
-![Рисунок 11](../Images/Testing/11.PNG)
+![Рисунок 11](../Images/Testing/11.png)
 
 <a name="12"/>
 
 Рисунок 12.
-![Рисунок 12](../Images/Testing/12.PNG)
+![Рисунок 12](../Images/Testing/12.png)
 
 <a name="13"/>
 
 Рисунок 13.
-![Рисунок 13](../Images/Testing/13.PNG)
+![Рисунок 13](../Images/Testing/13.png)
 
 <a name="14"/>
 
 Рисунок 14.
-![Рисунок 14](../Images/Testing/14.PNG)
+![Рисунок 14](../Images/Testing/14.png)
 
 <a name="15"/>
 
 Рисунок 15.
-![Рисунок 15](../Images/Testing/15.PNG)
+![Рисунок 15](../Images/Testing/15.png)
 
 <a name="16"/>
 
 Рисунок 16.
-![Рисунок 16](../Images/Testing/16.PNG)
+![Рисунок 16](../Images/Testing/16.png)
 
 <a name="17"/>
 
 Рисунок 17.
-![Рисунок 17](../Images/Testing/17.PNG)
+![Рисунок 17](../Images/Testing/17.png)
 
 <a name="18"/>
 
 Рисунок 18.
-![Рисунок 18](../Images/Testing/18.PNG)
+![Рисунок 18](../Images/Testing/18.png)
